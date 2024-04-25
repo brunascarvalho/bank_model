@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: bank_info_bronze
+    database: ada
+    schema: public
+    description: "Camada bronze dos dados dos clientes do Banco"
+    columns:
+      - name: "id"
+        description: "Identificador único de registro de resultados"
+        tests:
+          - unique
+          - not_null
+      - name: "customer_id"
+        description: "Identificador único de registro do cliente"
+        tests:
+          - not_null

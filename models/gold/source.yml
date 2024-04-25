@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: bank_info_silver
+    description: 'Fonte de dados do Banco - Silver'
+    database: ada
+    schema: public
+    tables:
+      - name: bank_info_silver
+        description: 'Dados brutos do Banco na camada silver'

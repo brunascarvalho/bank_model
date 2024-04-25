@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: bank_info
+    description: 'Fonte de dados do Banco'
+    database: ada
+    schema: public
+    tables:
+      - name: bank_info
+        description: 'Dados brutos do Banco'

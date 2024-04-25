@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: bank_info_gold_res_avg
+    database: ada
+    schema: public
+    description: "Camada gold da tabela de resultados do banco por cliente"
+    columns:
+      - name: customer_id
+        description: "Identificador unico do registro"
+        tests:
+          - unique
+          - not_null
+      - name: mean_num_of_delayed_payment
+        description: "Número de pagamentos atrasados"
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5000
+
+  - name: bank_info_gold_last_id
+    database: ada
+    schema: public
+    description: "Camada gold da tabela de resultados do banco com valores de anos de contribuição do cliente"
+    columns:
+      - name: customer_id
+        description: "Identificador unico do registro"
+        tests:
+          - unique
+          - not_null
+      - name: last_credit_history_age_years
+        description: "Anos de contribuição"
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 50

@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: bank_info_bronze
+    description: 'Fonte de dados do Banco - Bronze'
+    database: ada
+    schema: public
+    tables:
+      - name: bank_info_bronze
+        description: 'Dados brutos do Banco na camada bronze'
